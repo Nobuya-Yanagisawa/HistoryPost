@@ -62,3 +62,5 @@ module WillPaginate::ViewHelpers::Base
     end
   end
 end
+
+Refile.secret_key = '45f8199d3d19655d02dbb3f9971005606c9d12875bb07e7e9b3de1c94d9e4139d08e9a7ee866b84ad2b80609c5da10e954a88acccd31cfc63e36fe3c16f330fd'
