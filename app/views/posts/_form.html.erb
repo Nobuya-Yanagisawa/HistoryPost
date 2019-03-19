@@ -1,0 +1,21 @@
+<%= form_for(@post, url: yield(:url)) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+
+  <%= f.label :post_name %>
+  <%= f.text_field :post_name, class: 'form-control' %>
+
+  <%= f.label :introduction %>
+  <%= f.text_field :introduction, class: 'form-control' %>
+
+  <%= f.label :post_image %>
+  <%= f.attachment_field :post_image %>
+
+  <%= f.label :sub_title %>
+  <%= f.text_field :sub_title, class: 'form-control' %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

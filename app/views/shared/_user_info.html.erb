@@ -1,0 +1,5 @@
+<%= link_to gravatar_for(current_user, size: 50), current_user %>
+<h1><%= current_user.user_name %></h1>
+<span><%= link_to "マイページに移動", current_user %></span>
+<span><%= current_user.posts.count %>件の投稿</span>
+<%= link_to "新しい解説を投稿する", new_post_path, class: "btn btn-primary" %>

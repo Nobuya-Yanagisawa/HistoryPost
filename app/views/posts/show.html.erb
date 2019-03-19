@@ -1,0 +1,17 @@
+<% provide(:title, @post.post_name ) %>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @post.user %>
+        <%= @post.user.user_name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-9">
+    <h3><%= @post.post_name %></h3>
+    <span><%= @post.introduction %></span>
+    <%= attachment_image_tag @post, :post_image, :fill, 100, 100, alt: "解説用画像", class: "show_post_image" %>
+    <!-- subtitleとcontentをここにいれる -->
+  </div>
+</div>
