@@ -6,13 +6,17 @@
         <% if @user.user_image_id.nil? %>
           <%= gravatar_for @user %>
         <% else %>
-          <%= attachment_image_tag @user, :user_image, :fill, 80, 80, alt: "ユーザー画像", class: "user_image" %>
+          <%= attachment_image_tag @user, :user_image, :fill, 80, 80, format: 'jpeg', alt: "ユーザー画像", class: "user_image" %>
         <% end %>
         <%= @user.user_name %>
       </h1>
     </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <div class="col-md-9">
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.posts.any? %>
       <h3>Posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">
