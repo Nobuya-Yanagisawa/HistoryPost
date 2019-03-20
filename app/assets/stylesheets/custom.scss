@@ -270,10 +270,41 @@ span.picture {
     border: 0;
   }
 }
+/* Posts form*/
+.field {
+  .btn-info {
+    margin: 10px 0;
+  }
+}
 
+.nested-fields {
+  .btn-danger {
+    margin-bottom: 30px;
+  }
+}
 /* Posts show*/
 
-.show_post_image {
-  width: 100%;
-  height: 500px;
+.post_section {
+  .btn-success, .btn-danger {
+    float: right;
+    margin: 0 5px;
+  }
+  h1 {
+    font-size: 4rem;
+    text-align: left;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+  .post_image {
+    width: 100%;
+    height: 500px;
+  }
+  h2 {
+    font-size: 1.6em;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: .1em;
+    color: #333;
+    font-weight: 700;
+  }
 }
