@@ -141,6 +141,16 @@ aside {
   }
 }
 
+
+.user_image {
+  float: left;
+  margin-right: 10px;
+}
+.user_image_small {
+  float: left;
+  margin-right: 10px;
+}
+
 .gravatar {
   float: left;
   margin-right: 10px;
@@ -235,6 +245,12 @@ input {
     margin-left: 60px;
   }
   .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+
+  .user_image_small {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
