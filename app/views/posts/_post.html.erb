@@ -1,5 +1,13 @@
 <li id="post-<%= post.id %>">
-  <%= link_to gravatar_for(post.user, size: 50), post.user %>
+
+  <% if post.user.user_image_id.nil? %>
+    <%= link_to gravatar_for(post.user, size: 50), post.user %>
+  <% else %>
+    <%= link_to user_path(post.user) do %>
+      <%= attachment_image_tag post.user, :user_image, :fill, 50, 50, alt: "ユーザー画像", class: "user_image_small" %>
+    <% end %>
+  <% end %>
+
   <span class="user"><%= link_to post.user.user_name, post.user %></span>
   <span class="post_name"><%= link_to post.post_name, post %></span>
   <span class="introduction"><%= post.introduction %></span>

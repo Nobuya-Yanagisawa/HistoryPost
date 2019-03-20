@@ -3,7 +3,11 @@
   <aside class="col-md-3">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
+        <% if @user.user_image_id.nil? %>
+          <%= gravatar_for @user %>
+        <% else %>
+          <%= attachment_image_tag @user, :user_image, :fill, 80, 80, alt: "ユーザー画像", class: "user_image" %>
+        <% end %>
         <%= @user.user_name %>
       </h1>
     </section>

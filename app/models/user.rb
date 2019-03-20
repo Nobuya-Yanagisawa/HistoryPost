@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attachment :user_image
+
 	attr_accessor :remember_token
 	before_save { email.downcase! }
   validates :user_name,  presence: true, length: { maximum: 50 }

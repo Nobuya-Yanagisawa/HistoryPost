@@ -1,5 +1,12 @@
 <li>
-  <%= gravatar_for user, size: 50 %>
+	<% if user.user_image_id.nil? %>
+    <%= link_to gravatar_for(user, size: 50), user %>
+  <% else %>
+    <%= link_to user_path(user) do %>
+      <%= attachment_image_tag user, :user_image, :fill, 50, 50, alt: "ユーザー画像", class: "user_image_small" %>
+    <% end %>
+  <% end %>
+
   <%= link_to user.user_name, user %>
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "このユーザーを削除する", user, method: :delete,
