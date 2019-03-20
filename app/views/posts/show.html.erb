@@ -12,10 +12,28 @@
       </h1>
     </section>
   </aside>
-  <div class="col-md-9">
-    <h3><%= @post.post_name %></h3>
-    <span><%= @post.introduction %></span>
-    <%= attachment_image_tag @post, :post_image, alt: "解説用画像", class: "show_post_image" %>
-    <!-- subtitleとcontentをここにいれる -->
-  </div>
+  <article class="col-md-9">
+    <section class="post_section">
+    <% if @post.user == current_user %>
+      <%= link_to '解説を削除する', post_path(@post), method: :delete,
+                                     data: { confirm: "「#{@post.post_name}」を本当に削除しますか？" },
+                                    class: "btn btn-danger" %>
+      <%= link_to '内容を編集する', edit_post_path(@post), class: "btn btn-success" %>
+    <% end %>
+      <h1><%= @post.post_name %></h1>
+      <span><%= @post.introduction %></span>
+
+      <div class="post_image_wrapper">
+        <%= attachment_image_tag @post, :post_image, alt: "解説用画像", class: "post_image" %>
+      </div>
+      <h2><%= @post.sub_title %></h2>
+      <p><%= @post.content %></p>
+    </section>
+    <% @post.headlines.each do |headline| %>
+      <section class="headline_section">
+        <h2><%= headline.headline_name %></h2>
+        <p><%= headline.headline_content %></p>
+      </section>
+    <% end %>
+  </article>
 </div>

@@ -1,20 +1,34 @@
 <%= form_for(@post, url: yield(:url)) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :post_name %>
-  <%= f.text_field :post_name, class: 'form-control' %>
+  <%= f.label :post_name, "タイトル" %>
+  <%= f.text_field :post_name, placeholder: "タイトルを入力してください", class: 'form-control' %>
 
-  <%= f.label :introduction %>
-  <%= f.text_field :introduction, class: 'form-control' %>
+  <%= f.label :introduction, "概要" %>
+  <%= f.text_field :introduction, placeholder: "概要を入力してください(空白可)", class: 'form-control' %>
 
-  <%= f.label :post_image %>
+  <%= f.label :post_image, "添付画像" %>
   <%= f.attachment_field :post_image %>
 
-  <%= f.label :sub_title %>
-  <%= f.text_field :sub_title, class: 'form-control' %>
+  <%= f.label :sub_title, "見出し" %>
+  <%= f.text_field :sub_title, placeholder: "見出しを入力してください", class: 'form-control' %>
 
-  <%= f.label :content %>
-  <%= f.text_area :content, class: 'form-control' %>
+  <%= f.label :content, "本文" %>
+  <%= f.text_area :content, placeholder: "本文を入力してください", class: 'form-control' %>
+
+  <!-- 見出し・内容追加 -->
+  <div class="field">
+    <%= f.fields_for :headlines do |f| %>
+      <%= render 'headline_fields', f: f %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= link_to_add_association '見出しを追加する', f, :headlines,
+      data: { association_insertion_method: 'before' },
+      class: "btn btn-info" %>
+  </div>
+  <!-- 見出し・内容追加終わり -->
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
