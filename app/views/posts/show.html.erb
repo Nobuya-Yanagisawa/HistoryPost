@@ -6,7 +6,7 @@
         <% if @post.user.user_image_id.nil? %>
           <%= gravatar_for @post.user %>
         <% else %>
-          <%= attachment_image_tag @post.user, :user_image, :fill, 80, 80, alt: "ユーザー画像", class: "user_image" %>
+          <%= attachment_image_tag @post.user, :user_image, :fill, 80, 80, format: 'jpeg', alt: "ユーザー画像", class: "user_image" %>
         <% end %>
         <%= @post.user.user_name %>
       </h1>
