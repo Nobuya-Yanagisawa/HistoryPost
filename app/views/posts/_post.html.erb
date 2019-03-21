@@ -17,5 +17,6 @@
       <%= link_to "投稿を削除", post, method: :delete,
                                        data: { confirm: "「#{post.post_name}」を本当に削除しますか？" } %>
     <% end %>
+    <%= render "likes/like", post: post %>
   </span>
 </li>
