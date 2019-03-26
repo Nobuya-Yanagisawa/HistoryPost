@@ -1,0 +1,19 @@
+			<div class="comment_img_box">
+				<% if comment.user.user_image_id.nil? %>
+          <%= gravatar_for comment.user %>
+        <% else %>
+          <%= attachment_image_tag comment.user, :user_image, :fill, 80, 80, format: 'jpeg', alt: "ユーザー画像", class: "user_image" %>
+        <% end %>
+        <%= link_to @post.user.user_name, user_path(@post.user) %>
+	  	</div>
+			<div class="comment_user_box">
+  			<%= comment.user.user_name %>
+			</div>
+			<div class="comment_content_box">
+  			<%= comment.comment_content %>
+			</div>
+			<div class="comment_options_box">
+  			<% if logged_in? && current_user.id == comment.user_id %>
+	  			<%= link_to 'コメントを消す', post_comments_path(@post.id, comment_id: comment.id), method: :delete, "data-confirm" => "本当にコメントを消しますか?" %>
+	  		<% end %>
+			</div>

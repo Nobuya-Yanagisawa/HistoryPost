@@ -117,7 +117,7 @@ footer {
 
 aside {
   section.user_info {
-    margin-top: 0px;
+    margin-top: 20px;
   }
   section {
     padding: 10px 0;
@@ -139,6 +139,9 @@ aside {
       margin-top: 0px;
     }
   }
+}
+#post_show_user_info{
+  margin-top: 0px;
 }
 .btn_new_post{
   width: 100%;
@@ -278,6 +281,10 @@ input {
       padding: 5px 0;
     }
   }
+  .comment_content{
+    display: block;
+    margin-left: 60px;
+  }
   .timestamp {
     color: $gray-light;
     display: block;
@@ -350,7 +357,17 @@ span.picture {
     margin-bottom: 0px;
   }
 }
-
+.comment_section{
+  h2 {
+    font-size: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: .1em;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 0px;
+  }
+}
 /* likes */
 .like {
   form{
