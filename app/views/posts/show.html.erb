@@ -2,24 +2,30 @@
 <div class="row">
   <aside class="col-md-3">
     <section class="user_info">
+      <h1 class="poster">投稿者</h1>
       <h1>
         <% if @post.user.user_image_id.nil? %>
           <%= gravatar_for @post.user %>
         <% else %>
           <%= attachment_image_tag @post.user, :user_image, :fill, 80, 80, format: 'jpeg', alt: "ユーザー画像", class: "user_image" %>
         <% end %>
-        <%= @post.user.user_name %>
+        <%= link_to @post.user.user_name, user_path(@post.user) %>
       </h1>
     </section>
   </aside>
-  <article class="col-md-9">
+  <article class="col-md-9" id="post-<%= @post.id %>" >
+    <section class="post_info_section">
+      <span class=""><%= @post.created_at.strftime('%Y/%m/%d') %>に投稿</span>
+      <% if @post.user == current_user %>
+        <%= link_to '解説を削除する', post_path(@post), method: :delete,
+                                       data: { confirm: "「#{@post.post_name}」を本当に削除しますか？" },
+                                      class: "btn btn-danger" %>
+        <%= link_to '内容を編集する', edit_post_path(@post), class: "btn btn-success" %>
+      <% else %>
+        <%= render "likes/like", post: @post %>
+      <% end %>
+    </section>
     <section class="post_section">
-    <% if @post.user == current_user %>
-      <%= link_to '解説を削除する', post_path(@post), method: :delete,
-                                     data: { confirm: "「#{@post.post_name}」を本当に削除しますか？" },
-                                    class: "btn btn-danger" %>
-      <%= link_to '内容を編集する', edit_post_path(@post), class: "btn btn-success" %>
-    <% end %>
       <h1><%= @post.post_name %></h1>
       <span><%= @post.introduction %></span>
 
@@ -27,7 +33,7 @@
         <%= attachment_image_tag @post, :post_image, alt: "解説用画像", class: "post_image" %>
       </div>
       <h2><%= @post.sub_title %></h2>
-      <p><%= @post.content %></p>
+      <p><%= simple_format(@post.content) %></p>
     </section>
     <% @post.headlines.each do |headline| %>
       <section class="headline_section">

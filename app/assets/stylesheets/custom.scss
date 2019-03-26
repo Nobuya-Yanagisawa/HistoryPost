@@ -117,7 +117,7 @@ footer {
 
 aside {
   section.user_info {
-    margin-top: 20px;
+    margin-top: 0px;
   }
   section {
     padding: 10px 0;
@@ -140,8 +140,9 @@ aside {
     }
   }
 }
-
-
+.btn_new_post{
+  width: 100%;
+}
 .user_image {
   float: left;
   margin-right: 10px;
@@ -332,6 +333,8 @@ span.picture {
     text-align: left;
     line-height: 1.4;
     font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 5px;
   }
   .post_image {
     width: 100%;
@@ -344,5 +347,17 @@ span.picture {
     padding-bottom: .1em;
     color: #333;
     font-weight: 700;
+    margin-bottom: 0px;
+  }
+}
+
+/* likes */
+.like {
+  form{
+    display: inline-block;
+  }
+
+  .btn-fas {
+    background-color: #ffd095;
   }
 }
