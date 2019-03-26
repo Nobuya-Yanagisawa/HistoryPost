@@ -1,0 +1,12 @@
+<% if logged_in? %>
+	<%= form_for([@post, @comment]) do |f| %>
+		<div>
+    	<%= f.text_area :comment_content, :placeholder => "新しいコメントを入力してください", class: 'form-control' %>
+		</div>
+		<div>
+    	<%= f.submit "コメントを投稿する", class: "btn btn-primary" %>
+		</div>
+  <% end %>
+<% else %>
+	<%= link_to "コメントを投稿するにはログインが必要です", login_path, class: "btn btn-default" %>
+<% end %>
