@@ -23,6 +23,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  scope :search_by_keyword, -> (keyword) {
+    where("users.user_name LIKE :keyword", keyword: "%#{sanitize_sql_like(keyword)}%") if keyword.present?
+  }
+
   class << self
     # 渡された文字列のハッシュ値を返す
     def digest(string)

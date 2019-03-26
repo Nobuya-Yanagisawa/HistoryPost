@@ -1,6 +1,15 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
-
+<li class="search-nav">
+  <%= form_tag(users_path, method: :get) do %>
+    <div class="input-group">
+      <%= search_field_tag "q", params[:q], class: "form-control", placeholder: "ユーザー名をキーワードで検索" %>
+      <span class="input-group-btn">
+        <%= submit_tag "検索", class: "btn btn-default" %>
+      </span>
+    </div>
+  <% end %>
+</li>
 <%= will_paginate %>
 
 <ul class="users">

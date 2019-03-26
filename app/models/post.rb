@@ -3,6 +3,9 @@ class Post < ApplicationRecord
 
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
+  scope :search_by_keyword, -> (keyword) {
+    where("posts.post_name LIKE :keyword", keyword: "%#{sanitize_sql_like(keyword)}%") if keyword.present?
+  }
   validates :user_id, 	presence: true
   validates :post_name, presence: true, length: { maximum: 50 }
   validates :sub_title, presence: true, length: { maximum: 50 }
