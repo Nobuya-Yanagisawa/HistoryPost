@@ -17,3 +17,10 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+			$('#nav_toggle').click(function(){
+						$("header").toggleClass('open');
+				$("nav").slideToggle(500);
+					});
+		});

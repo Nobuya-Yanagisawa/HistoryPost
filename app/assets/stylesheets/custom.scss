@@ -78,7 +78,7 @@ p {
 
 .search-nav {
   width: 300px;
-  padding-top: 9px;
+  padding: 10px;
   list-style: none;
 }
 
@@ -395,5 +395,17 @@ span.picture {
     &:active {
       background-color: #f6bc74
     }
+  }
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width:1024px) {
+  body{
+    padding-top: 106px;
+  }
+}
+@media screen and (max-width: 768px) {
+  body{
+    padding-top: 67px;
   }
 }
