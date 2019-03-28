@@ -9,11 +9,13 @@
         <% else %>
           <%= attachment_image_tag @post.user, :user_image, :fill, 80, 80, format: 'jpeg', alt: "ユーザー画像", class: "user_image" %>
         <% end %>
-        <%= link_to @post.user.user_name, user_path(@post.user) %>
+        <%= @post.user.user_name %>
       </h1>
+      <span><%= link_to "ユーザーページへ移動", user_path(@post.user) %></span>
+      <span><%= @post.user.posts.count %>件の投稿</span>
     </section>
   </aside>
-  <article class="col-md-9" id="post-<%= @post.id %>" >
+  <article class="col-md-9" id="post-<%= @post.id %>"> <!-- idはいいね機能の実装に必要 -->
     <section class="post_info_section">
       <span class=""><%= @post.created_at.strftime('%Y年%m月%d日 %H:%M') %>に投稿</span>
       <% if @post.user == current_user %>
@@ -35,12 +37,14 @@
       <h2><%= @post.sub_title %></h2>
       <p><%= simple_format(@post.content) %></p>
     </section>
-    <% @post.headlines.each do |headline| %>
-      <section class="headline_section">
+    <!-- cocoonを用いての解説追加部分 -->
+    <section class="headline_section">
+      <% @post.headlines.each do |headline| %>
         <h2><%= headline.headline_name %></h2>
         <p><%= headline.headline_content %></p>
-      </section>
-    <% end %>
+      <% end %>
+    </section>
+    <!-- cocoonを用いての解説追加部分終わり -->
     <section class="comment_section">
       <h2>コメント（<%= @post.comments.count %>件）</h2>
       <ol class="posts">

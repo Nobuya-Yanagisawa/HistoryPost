@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-    	flash[:success] = "Welcome to the Sample App!"
+    	flash[:success] = "ユーザー登録が完了しました！"
     	redirect_to @user
     else
       render 'new'
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "ユーザー情報の更新に成功しました"
       redirect_to @user
     else
       render 'edit'
@@ -48,20 +48,23 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
-    redirect_to users_url
+    if User.find(params[:id]).destroy
+      flash[:success] = "ユーザーの削除に成功しました"
+      redirect_to users_url
+    else
+      redirect_to root_path
+    end
   end
 
   def following
-    @title = "Following"
+    @title = "フォロー"
     @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = "フォロワー"
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'

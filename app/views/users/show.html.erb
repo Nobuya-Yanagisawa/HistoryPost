@@ -10,6 +10,7 @@
         <% end %>
         <%= @user.user_name %>
       </h1>
+      <span><%= @user.posts.count %>件の投稿</span>
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
@@ -18,7 +19,7 @@
   </aside>
   <div class="col-md-9">
     <% if @user.posts.any? %>
-      <h3>Posts (<%= @user.posts.count %>)</h3>
+      <h3>解説投稿：<%= @user.posts.count %> 件</h3>
       <ol class="posts">
         <%= render @posts %>
       </ol>
