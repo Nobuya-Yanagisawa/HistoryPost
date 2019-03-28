@@ -1,19 +1,19 @@
 <%= form_for(@user, url: yield(:url)) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :user_name %>
+  <%= f.label :user_name, "ユーザー名" %>
   <%= f.text_field :user_name, class: 'form-control' %>
 
   <%= f.label :email %>
   <%= f.email_field :email, class: 'form-control' %>
 
-  <%= f.label :user_image %>
+  <%= f.label :user_image, "プロフィール画像 (設定がない場合は初期画像になります)" %>
   <%= f.attachment_field :user_image %>
 
-  <%= f.label :password %>
+  <%= f.label :password, "パスワード" %>
   <%= f.password_field :password, class: 'form-control' %>
 
-  <%= f.label :password_confirmation %>
+  <%= f.label :password_confirmation, "パスワード確認" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>

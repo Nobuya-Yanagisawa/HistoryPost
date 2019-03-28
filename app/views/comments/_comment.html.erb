@@ -11,7 +11,7 @@
 	<span class="comment_content"><%= simple_format(comment.comment_content) %></span>
 	<span class="timestamp">
 		<%= comment.created_at.strftime('%Y年%m月%d日 %H:%M') %>
-		<% if logged_in? && current_user.id == comment.user_id %>
+		<% if logged_in? && (current_user.id == comment.user_id) %>
 			<%= link_to 'このコメントを消す', post_comments_path(@post.id, comment_id: comment.id), method: :delete, "data-confirm" => "本当にコメントを消しますか?" %>
 		<% end %>
 	</span>

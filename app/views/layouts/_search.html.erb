@@ -4,7 +4,9 @@
       <div class="input-group">
         <%= search_field_tag "q", params[:q], class: "form-control", placeholder: "解説をキーワードで検索" %>
         <span class="input-group-btn">
-          <%= submit_tag "検索", class: "btn btn-default" %>
+          <%= button_tag(class: "btn btn-default") do %>
+            <i class="fas fa-search"></i>
+          <% end %>
         </span>
       </div>
     <% end %>

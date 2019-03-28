@@ -82,3 +82,5 @@ gem "refile-mini_magick"
 gem 'cocoon'
 
 gem 'counter_culture', '~> 1.8'
+
+gem 'rails-i18n'

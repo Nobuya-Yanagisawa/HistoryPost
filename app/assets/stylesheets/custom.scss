@@ -63,16 +63,15 @@ p {
 /* header */
 
 #logo {
+  font-family: 'Lobster', cursive;
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 32px;
   color: white;
-  text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: #00adff;
     text-decoration: none;
   }
 }
@@ -363,6 +362,17 @@ span.picture {
     margin-bottom: 0px;
   }
 }
+.headline_section{
+  h2 {
+    font-size: 1.6em;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: .1em;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 0px;
+  }
+}
 .comment_section{
   h2 {
     font-size: 15px;
@@ -382,5 +392,8 @@ span.picture {
 
   .btn-fas {
     background-color: #ffd095;
+    &:active {
+      background-color: #f6bc74
+    }
   }
 }

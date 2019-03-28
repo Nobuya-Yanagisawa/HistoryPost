@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-	attachment :post_image
+	attachment :post_image, content_type: "image/jpeg"
 
   belongs_to :user
   default_scope -> { order(created_at: :desc) }

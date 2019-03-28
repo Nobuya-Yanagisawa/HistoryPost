@@ -12,7 +12,7 @@
   <span class="post_name"><%= link_to post.post_name, post %></span>
   <span class="introduction"><%= post.introduction %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
+    <%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %>に投稿
     <% if current_user?(post.user) %>
       <%= link_to "投稿を削除", post, method: :delete,
                                        data: { confirm: "「#{post.post_name}」を本当に削除しますか？" } %>
