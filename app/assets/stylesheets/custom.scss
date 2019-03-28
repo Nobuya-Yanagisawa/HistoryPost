@@ -67,7 +67,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 32px;
-  color: white;
+  color: #777;
   letter-spacing: -1px;
   font-weight: bold;
   &:hover {
@@ -116,6 +116,19 @@ footer {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+/* home */
+.jumbotron{
+  background-image: url(top_image.jpg);
+  background-size: cover;
+
+  h1, h2 {
+    color: #ffffff;
+  }
+  h1 {
+    font-family: 'Germania One', cursive;
+  }
 }
 
 /* sidebar */
@@ -404,7 +417,7 @@ span.picture {
     padding-top: 106px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   body{
     padding-top: 67px;
   }

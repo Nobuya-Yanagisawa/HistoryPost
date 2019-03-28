@@ -9,6 +9,8 @@ class StaticPagesController < ApplicationController
       else
         @feed_items = current_user.feed.paginate(page: params[:page])
       end
+    else
+      @posts = Post.all.take(5)
     end
   end
 
