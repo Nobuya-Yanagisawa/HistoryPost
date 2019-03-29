@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attachment :user_image, content_type: "image/jpeg"
+  attachment :user_image, content_type: ["image/jpeg", "image/png", "image/gif"]
 
 	attr_accessor :remember_token
 	before_save { email.downcase! }
