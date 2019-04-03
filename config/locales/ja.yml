@@ -2,9 +2,22 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      post: 投稿
+      headline: 見出し
+      comment: コメント
     attributes:
       user:
         user_name: ユーザー名
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+      post:
+        post_name: タイトル
+        introduction: 概要
+        sub_title: 見出し
+        content: 本文
+      headline:
+        headline_name: 見出し
+        headline_content: 本文
+      comment:
+        comment_content: コメント内容

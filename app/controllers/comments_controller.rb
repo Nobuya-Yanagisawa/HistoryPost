@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 			flash[:success] = "コメントの投稿に成功しました"
 			redirect_to @post
 		else
-			flash[:danger] = "コメントの投稿に失敗しました"
+			flash.now[:danger] = "コメントの投稿に失敗しました"
 			@comment = @post.comments.build if logged_in?
     	@comments = @post.comments.page(params[:page])
 			render 'posts/show'
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 			flash[:success] = "コメントの削除に成功しました"
     	redirect_to post_path(params[:post_id])
 		else
-			flash[:danger] = "コメントの削除に失敗しました"
+			flash.now[:danger] = "コメントの削除に失敗しました"
 			@comment = @post.comments.build if logged_in?
     	@comments = @post.comments.page(params[:page])
 			render 'posts/show'
