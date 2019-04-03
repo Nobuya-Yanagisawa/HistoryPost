@@ -24,6 +24,8 @@
         <%= render @posts %>
       </ol>
       <%= will_paginate @posts %>
+    <% else %>
+      <h3>あなたの投稿はまだありません</h3>
     <% end %>
   </div>
 </div>
