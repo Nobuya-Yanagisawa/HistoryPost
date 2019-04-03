@@ -7,7 +7,7 @@ class Post < ApplicationRecord
     where("posts.post_name LIKE :keyword", keyword: "%#{sanitize_sql_like(keyword)}%") if keyword.present?
   }
   validates :user_id, 	presence: true
-  validates :post_name, presence: true, length: { maximum: 50 }
+  validates :post_name, presence: true, length: { maximum: 80 }
   validates :sub_title, presence: true, length: { maximum: 50 }
   validates :content, 	presence: true
 
