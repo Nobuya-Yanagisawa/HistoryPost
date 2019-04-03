@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   }
   validates :user_id, 	presence: true
   validates :post_name, presence: true, length: { maximum: 80 }
+  validates :introduction, length: { maximum: 80 }
   validates :sub_title, presence: true, length: { maximum: 50 }
   validates :content, 	presence: true
 

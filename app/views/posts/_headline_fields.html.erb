@@ -1,10 +1,10 @@
 <div class="nested-fields">
 	<div class=form-group>
 		<%= f.label :headline_name, "見出し" %>
-  	<%= f.text_field :headline_name, class: 'form-control'%>
+  	<%= f.text_field :headline_name, placeholder: "見出しを入力してください", class: 'form-control'%>
 
   	<%= f.label :headline_content, "本文" %>
-  	<%= f.text_area :headline_content, rows: "10", cols: "50", class: 'form-control' %>
+  	<%= f.text_area :headline_content, placeholder: "本文を入力してください", rows: "10", cols: "50", class: 'form-control' %>
 	</div>
   <%= link_to_remove_association "この見出しを消す", f, class: "btn btn-danger" %>
 </div>
