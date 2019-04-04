@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 	def destroy
     if Post.find(params[:id]).destroy
       flash[:success] = "「#{@post.post_name}」を削除しました！"
-      redirect_to posts_path
+      redirect_to root_path
     else
       redirect_to root_path
     end
