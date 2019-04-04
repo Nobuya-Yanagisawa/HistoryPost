@@ -19,7 +19,7 @@
     <section class="post_info_section">
       <span class=""><%= @post.created_at.strftime('%Y年%m月%d日 %H:%M') %>に投稿</span>
       <% if @post.user == current_user %>
-        <%= link_to '解説を削除する', post_path(@post), method: :delete,
+        <%= link_to '解説を削除する', post_path(@post.id), method: :delete,
                                        data: { confirm: "「#{@post.post_name}」を本当に削除しますか？" },
                                       class: "btn btn-danger" %>
         <%= link_to '内容を編集する', edit_post_path(@post), class: "btn btn-success" %>

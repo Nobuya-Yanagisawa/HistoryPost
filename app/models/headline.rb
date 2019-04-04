@@ -1,4 +1,4 @@
 class Headline < ApplicationRecord
   belongs_to :post
-  validates :sub_title, length: { maximum: 50 }
+  validates :headline_name, length: { maximum: 50 }
 end

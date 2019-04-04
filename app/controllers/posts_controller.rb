@@ -38,9 +38,12 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-    @post.destroy
-    flash[:success] = "「#{@post.post_name}」を削除しました！"
-    redirect_to request.referrer || root_url
+    if Post.find(params[:id]).destroy
+      flash[:success] = "「#{@post.post_name}」を削除しました！"
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
 	end
 
   private
