@@ -21,8 +21,8 @@ class PostTest < ActiveSupport::TestCase
     assert_not @post.valid?
   end
 
-  test "post name should be at most 50 characters" do
-    @post.post_name = "a" * 51
+  test "post name should be at most 80 characters" do
+    @post.post_name = "a" * 81
     assert_not @post.valid?
   end
 
