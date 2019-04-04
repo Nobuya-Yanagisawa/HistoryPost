@@ -14,11 +14,11 @@ User.create!(user_name:  "Example User",
                password_confirmation: password)
 end
 
-User.create!(user_name:  "User",
+User.create!(user_name:  "Sample User",
              email: "user@user.com",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true)
+             admin: false)
 
 users = User.order(:created_at).take(6)
 50.times do |n|
@@ -67,7 +67,7 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 user = users.find(100)
-following = users[1..6]
+following = users[0..5]
 followers = users[1..10]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
