@@ -1,7 +1,7 @@
 <%= form_for(@post, url: yield(:url)) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :post_name, "タイトル" %>
+  <%= f.label :post_name, "タイトル（必要）" %>
   <%= f.text_field :post_name, placeholder: "タイトルを入力してください", class: 'form-control' %>
 
   <%= f.label :introduction, "概要" %>
@@ -10,10 +10,10 @@
   <%= f.label :post_image, "添付画像" %>
   <%= f.attachment_field :post_image %>
 
-  <%= f.label :sub_title, "見出し" %>
+  <%= f.label :sub_title, "見出し(必要)" %>
   <%= f.text_field :sub_title, placeholder: "見出しを入力してください", class: 'form-control' %>
 
-  <%= f.label :content, "本文" %>
+  <%= f.label :content, "本文（必要）" %>
   <%= f.text_area :content, placeholder: "本文を入力してください", rows: "10", cols: "50", class: 'form-control' %>
 
   <!-- 見出し・内容追加 -->
