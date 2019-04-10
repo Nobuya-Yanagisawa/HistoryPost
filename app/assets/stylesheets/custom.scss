@@ -15,6 +15,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background: #fafafa;
 }
 
 section {
@@ -30,6 +31,19 @@ textarea {
   h1 {
     margin-bottom: 10px;
   }
+}
+
+.container {
+  background: #ffffff;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+aside {
+  margin-top: 15px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  border: double 3px black;
 }
 
 /* typography */
@@ -61,6 +75,13 @@ p {
 
 
 /* header */
+.header_container {
+  background: #dcf0f8;
+}
+
+.navbar-default {
+  background: #dcf0f8!important;
+}
 
 #logo {
   font-family: 'Lobster', cursive;
@@ -128,6 +149,9 @@ footer {
   }
   h1 {
     font-family: 'Germania One', cursive;
+  }
+  h2 {
+    font-weight: 900;
   }
 }
 

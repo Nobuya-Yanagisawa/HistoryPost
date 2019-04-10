@@ -2,7 +2,7 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <% if current_user.user_image_id.nil? %>
+      <% if @user.user_image_id.nil? %>
         <%= link_to gravatar_for(@user, size: 80), @user %>
       <% else %>
         <%= link_to user_path(@user) do %>
