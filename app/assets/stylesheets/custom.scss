@@ -216,8 +216,13 @@ aside {
 #post_show_user_info{
   margin-top: 0px;
 }
-.btn_new_post{
+.btn_new_post {
   width: 100%;
+  margin-bottom: 20px;
+}
+.btn_selector {
+  width: 100%;
+  margin-bottom: 5px;
 }
 .user_image {
   float: left;
@@ -325,7 +330,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-top: 1px solid $gray-lighter;
   }
 }
 

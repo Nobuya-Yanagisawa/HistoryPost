@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
         @feed_items = relation.merge(User.search_by_keyword(params[:q]))
                         .or(relation.search_by_keyword(params[:q]))
                         .paginate(page: params[:page])
-        @title = "検索結果"
+        @title    = "検索結果"
         @headline = "検索結果"
       else
         @feed_items = current_user.feed.paginate(page: params[:page])

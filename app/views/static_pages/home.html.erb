@@ -5,6 +5,7 @@
       <h1>HistoryPost</h1>
       <h2>みんなで教えあいながら歴史を学んでみませんか？</h2>
     </div>
+
     <aside class="col-md-3">
       <section class="user_info">
         <%= render 'shared/user_info' %>
@@ -13,7 +14,9 @@
         <%= render 'shared/stats' %>
       </section>
       <%= link_to "新しい解説を投稿する", new_post_path, class: "btn btn-primary btn_new_post" %>
+      <%= render 'shared/link_list' %>
     </aside>
+    
     <div class="col-md-9">
       <h3><%= @headline %></h3>
       <%= render 'shared/feed' %>
