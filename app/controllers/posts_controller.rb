@@ -68,7 +68,11 @@ class PostsController < ApplicationController
   end
 
   def ranking
-    @posts = Post.all.reverse_order.paginate(page: params[:page])
+    # @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+
+    # @posts = Post.select('posts.*', 'count(likes.id) AS likes').left_joins(:likes).group('posts.id').order('likes desc').paginate(page: params[:page])
+  
+    @posts = Post.all.sort_by{ |k, v| k.likes.count }.reverse.paginate(page: params[:page])
   end
 
   private
