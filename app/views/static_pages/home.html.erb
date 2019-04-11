@@ -4,6 +4,7 @@
       <h1>HistoryPost</h1>
       <h2>みんなで教えあいながら歴史を学んでみませんか？</h2>
     </div>
+
     <aside class="col-md-3">
       <section class="user_info">
         <%= render 'shared/user_info' %>
@@ -11,11 +12,28 @@
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
+      <%= render 'shared/link_list' %>
       <%= link_to "新しい解説を投稿する", new_post_path, class: "btn btn-primary btn_new_post" %>
     </aside>
-    <div class="col-md-9">
-      <h3>タイムライン</h3>
-      <%= render 'shared/feed' %>
+
+    <div class="col-md-9 wrap">
+      <ul id="tab-menu" class="clearfix">
+        <li><a href="#tab1" class="active">タイムライン</a></li>
+        <li><a href="#tab2" class="">投稿一覧</a></li>
+        <li><a href="#tab3" class="">人気順</a></li>
+      </ul>
+
+      <div id="tab-contents" class="clearfix">
+        <div id="tab1" class="tab">
+          <%= render 'shared/feed' %>
+        </div>
+        <div id="tab2" class="tab">
+          <%= render 'posts/index' %>
+        </div>
+        <div id="tab3" class="tab">
+          <%= render 'posts/ranking' %>
+        </div>
+      </div>
     </div>
   </div>
 <% else %>
@@ -27,9 +45,13 @@
   	</div>
 
     <div class="home_posts col-md-8 col-md-offset-2">
-      <h3>新着解説</h3>
+      <h3>人気解説</h3>
       <ol class="posts">
-        <%= render @posts %>
+        <% if @posts.any? %>
+          <%= render @posts %>
+        <% else %>
+          <p>解説はまだありません</p>
+        <% end %>
       </ol>
       <%= link_to "ユーザー登録するとすべての解説が見られるようになります", signup_path %>
     </div>

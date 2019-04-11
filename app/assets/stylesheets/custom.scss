@@ -15,6 +15,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background: #fafafa;
 }
 
 section {
@@ -30,6 +31,21 @@ textarea {
   h1 {
     margin-bottom: 10px;
   }
+}
+
+.container {
+  background: #ffffff;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+aside {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  border: double 3px black;
 }
 
 /* typography */
@@ -61,6 +77,13 @@ p {
 
 
 /* header */
+.header_container {
+  background: #dffafe;
+}
+
+.navbar-default {
+  background: #dffafe!important;
+}
 
 #logo {
   font-family: 'Lobster', cursive;
@@ -122,6 +145,7 @@ footer {
 .jumbotron{
   background-image: url(/images/top_image.jpg);
   background-size: cover;
+  margin-bottom: 15px;
 
   h1, h2 {
     color: #ffffff;
@@ -129,16 +153,19 @@ footer {
   h1 {
     font-family: 'Germania One', cursive;
   }
+  h2 {
+    font-weight: 900;
+  }
 }
 
-/*.wrap{
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
+.wrap{
   .clearfix:after{
     content:"";
     clear: both;
     display: block;
+  }
+  #tab-menu {
+    padding-left: 30px;
   }
   #tab-menu li {
     float: left;
@@ -149,17 +176,18 @@ footer {
     color: #000;
     text-decoration: none;
     display: block;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     background: #d9d3d3;
     border: 1px solid #000;
   }
   #tab-menu .active {
-    background: #fff;
+    background: #f6bc74;
     color: #000;
   }
   #tab-contents .tab {
-    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
     background: #fff;
     border-top: none;
   }
@@ -168,7 +196,7 @@ footer {
     line-height: 2.5;
   }
 }
-*/
+
 /* help */
 .help_section {
   &:nth-of-type(n+2){
@@ -216,8 +244,12 @@ aside {
 #post_show_user_info{
   margin-top: 0px;
 }
-.btn_new_post{
+.btn_new_post {
   width: 100%;
+}
+.btn_selector {
+  width: 100%;
+  margin-bottom: 5px;
 }
 .user_image {
   float: left;
@@ -325,7 +357,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-top: 1px solid $gray-lighter;
   }
 }
 
@@ -363,6 +395,11 @@ input {
     display: block;
     margin-left: 60px;
   }
+  .post_user_like{
+    font-weight: 100!important;
+    margin: 0 5px;
+    font-size: 13px;
+  }
   .gravatar {
     float: left;
     margin-right: 10px;
@@ -375,7 +412,10 @@ input {
     margin-top: 5px;
   }
 }
-
+.wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+}
 aside {
   textarea {
     height: 100px;

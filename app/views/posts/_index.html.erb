@@ -1,0 +1,9 @@
+<% if @posts_index.any? %>
+  <ol class="posts">
+    <%= render @posts_index %>
+  </ol>
+  <%= link_to "もっと見る...", posts_path %>
+<% else %>
+	<hr>
+	<p>解説の投稿がありません</p>
+<% end %>

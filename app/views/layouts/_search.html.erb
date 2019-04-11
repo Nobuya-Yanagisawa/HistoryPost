@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <li class="search-nav">
-    <%= form_tag(root_path, method: :get) do %>
+    <%= form_tag(posts_path, method: :get) do %>
       <div class="input-group">
         <%= search_field_tag "q", params[:q], class: "form-control", placeholder: "解説をキーワードで検索" %>
         <span class="input-group-btn">

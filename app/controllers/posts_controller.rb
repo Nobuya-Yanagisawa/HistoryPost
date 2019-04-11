@@ -1,11 +1,28 @@
 class PostsController < ApplicationController
-	before_action :logged_in_user, only: [:show, :new, :create, :edit, :update, :destroy]
-	before_action :correct_user,   only: [:edit, :update, :destroy]
+	before_action :logged_in_user
+	before_action :correct_user, only: [:edit, :update, :destroy]
+
+  def index
+    @title    = "解説一覧"
+    @headline = "解説一覧"
+    @message  = "解説がありません"
+    if params[:q]
+      relation = Post.joins(:user)
+      @posts = relation.merge(User.search_by_keyword(params[:q]))
+                      .or(relation.search_by_keyword(params[:q]))
+                      .paginate(page: params[:page])
+      @title    = "検索結果"
+      @headline = "検索結果"
+      @message  = "検索に該当する解説がありません"
+    else
+      @posts = Post.paginate(page: params[:page])
+    end
+  end
 
 	def show
     @post = Post.find(params[:id])
     @comment = @post.comments.build if logged_in?
-    @comments = @post.comments.page(params[:page])
+    @comments = @post.comments.paginate(page: params[:page])
 	end
 
 	def new
@@ -45,6 +62,18 @@ class PostsController < ApplicationController
       redirect_to root_path
     end
 	end
+
+  def timeline
+    @posts = current_user.feed.paginate(page: params[:page])
+  end
+
+  def ranking
+    # @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+
+    # @posts = Post.select('posts.*', 'count(likes.id) AS likes').left_joins(:likes).group('posts.id').order('likes desc').paginate(page: params[:page])
+  
+    @posts = Post.all.sort_by{ |k, v| k.likes.count }.reverse.paginate(page: params[:page])
+  end
 
   private
 

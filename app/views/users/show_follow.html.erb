@@ -2,7 +2,13 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <%= gravatar_for @user %>
+      <% if @user.user_image_id.nil? %>
+        <%= link_to gravatar_for(@user, size: 80), @user %>
+      <% else %>
+        <%= link_to user_path(@user) do %>
+          <%= attachment_image_tag @user, :user_image, :fill, 80, 80, format: 'jpeg', alt: "ユーザー画像" %>
+        <% end %>
+      <% end %>
       <h1><%= @user.user_name %></h1>
       <span><%= link_to "ユーザーページへ移動", @user %></span>
       <span><%= @user.posts.count %>件の投稿</span>
@@ -12,19 +18,28 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
+            <% if user.user_image_id.nil? %>
+              <%= link_to gravatar_for(user, size: 30), user %>
+            <% else %>
+              <%= link_to user_path(user) do %>
+                <%= attachment_image_tag user, :user_image, :fill, 30, 30, format: 'jpeg', alt: "ユーザー画像" %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
     </section>
   </aside>
   <div class="col-md-8">
-    <h3><%= @title %></h3>
     <% if @users.any? %>
+      <h3><%= @headline %></h3>
       <ul class="users follow">
         <%= render @users %>
       </ul>
       <%= will_paginate %>
+    <% else %>
+      <h3><%= @message %></h3>
+      <hr>
     <% end %>
   </div>
 </div>
