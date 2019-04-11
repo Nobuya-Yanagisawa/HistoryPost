@@ -1,0 +1,9 @@
+<% if @ranking.any? %>
+  <ol class="posts">
+    <%= render @ranking %>
+  </ol>
+  <%= will_paginate @ranking %>
+<% else %>
+	<hr>
+	<p>解説の投稿がありません</p>
+<% end %>

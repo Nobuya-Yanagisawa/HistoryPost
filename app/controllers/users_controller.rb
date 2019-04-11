@@ -60,6 +60,8 @@ class UsersController < ApplicationController
     @title = "フォロー"
     @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
+    @headline = "フォローしているユーザー"
+    @message = "フォローしているユーザーはありません"
     render 'show_follow'
   end
 
@@ -67,6 +69,8 @@ class UsersController < ApplicationController
     @title = "フォロワー"
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
+    @headline = "フォロワーとなっているユーザー"
+    @message = "フォロワーとなっているユーザーはありません"
     render 'show_follow'
   end
   

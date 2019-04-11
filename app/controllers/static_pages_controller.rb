@@ -2,6 +2,8 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
       @headline = "タイムライン"
+      @posts_index = Post.all.page(params[:page])
+      @ranking = Post.all.reverse_order.page(params[:page])
       if params[:q]
         relation = Post.joins(:user)
         @feed_items = relation.merge(User.search_by_keyword(params[:q]))

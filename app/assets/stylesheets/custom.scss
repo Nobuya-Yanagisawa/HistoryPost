@@ -41,6 +41,8 @@ textarea {
 
 aside {
   margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 10px;
   padding-bottom: 20px;
   border-radius: 10px;
   border: double 3px black;
@@ -76,11 +78,11 @@ p {
 
 /* header */
 .header_container {
-  background: #dcf0f8;
+  background: #dffafe;
 }
 
 .navbar-default {
-  background: #dcf0f8!important;
+  background: #dffafe!important;
 }
 
 #logo {
@@ -143,6 +145,7 @@ footer {
 .jumbotron{
   background-image: url(/images/top_image.jpg);
   background-size: cover;
+  margin-bottom: 15px;
 
   h1, h2 {
     color: #ffffff;
@@ -155,14 +158,14 @@ footer {
   }
 }
 
-/*.wrap{
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
+.wrap{
   .clearfix:after{
     content:"";
     clear: both;
     display: block;
+  }
+  #tab-menu {
+    padding-left: 30px;
   }
   #tab-menu li {
     float: left;
@@ -173,17 +176,18 @@ footer {
     color: #000;
     text-decoration: none;
     display: block;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     background: #d9d3d3;
     border: 1px solid #000;
   }
   #tab-menu .active {
-    background: #fff;
+    background: #f6bc74;
     color: #000;
   }
   #tab-contents .tab {
-    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
     background: #fff;
     border-top: none;
   }
@@ -192,7 +196,7 @@ footer {
     line-height: 2.5;
   }
 }
-*/
+
 /* help */
 .help_section {
   &:nth-of-type(n+2){
@@ -242,7 +246,6 @@ aside {
 }
 .btn_new_post {
   width: 100%;
-  margin-bottom: 20px;
 }
 .btn_selector {
   width: 100%;

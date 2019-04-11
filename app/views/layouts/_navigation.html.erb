@@ -10,7 +10,7 @@
 <div class="collapse navbar-collapse" id="navbarMain">
   <ul class="nav navbar-nav">
     <%= render 'layouts/search' %>
-    <li><%= link_to "ホーム", root_path, class: "fas fa-home" %></li>
+    <li><%= link_to "ホーム", root_path, data: {"turbolinks" => false}, class: "fas fa-home" %></li>
     <li><%= link_to "ヘルプ", help_path, class: "fas fa-question-circle" %></li>
     <% if logged_in? %>
       <li><%= link_to "ユーザー", users_path, class: "fas fa-users" %></li>

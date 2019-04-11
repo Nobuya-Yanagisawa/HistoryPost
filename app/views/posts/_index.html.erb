@@ -1,0 +1,9 @@
+<% if @posts_index.any? %>
+  <ol class="posts">
+    <%= render @posts_index %>
+  </ol>
+  <%= will_paginate @posts_index %>
+<% else %>
+	<hr>
+	<p>解説の投稿がありません</p>
+<% end %>
