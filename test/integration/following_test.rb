@@ -54,8 +54,8 @@ class FollowingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "feed on Home page" do
-    get root_path
+  test "feed on Timeline page" do
+    get timeline_path
     @user.feed.paginate(page: 1).each do |post|
       assert_match CGI.escapeHTML(post.post_name), response.body
     end

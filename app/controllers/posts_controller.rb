@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 	def show
     @post = Post.find(params[:id])
     @comment = @post.comments.build if logged_in?
-    @comments = @post.comments.page(params[:page])
+    @comments = @post.comments.paginate(page: params[:page])
 	end
 
 	def new
