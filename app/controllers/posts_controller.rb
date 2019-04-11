@@ -1,6 +1,23 @@
 class PostsController < ApplicationController
-	before_action :logged_in_user, only: [:show, :new, :create, :edit, :update, :destroy]
-	before_action :correct_user,   only: [:edit, :update, :destroy]
+	before_action :logged_in_user
+	before_action :correct_user, only: [:edit, :update, :destroy]
+
+  def index
+    @title    = "解説一覧"
+    @headline = "解説一覧"
+    @message  = "解説がありません"
+    if params[:q]
+      relation = Post.joins(:user)
+      @posts = relation.merge(User.search_by_keyword(params[:q]))
+                      .or(relation.search_by_keyword(params[:q]))
+                      .paginate(page: params[:page])
+      @title    = "検索結果"
+      @headline = "検索結果"
+      @message  = "検索に該当する解説がありません"
+    else
+      @posts = Post.paginate(page: params[:page])
+    end
+  end
 
 	def show
     @post = Post.find(params[:id])
@@ -45,6 +62,14 @@ class PostsController < ApplicationController
       redirect_to root_path
     end
 	end
+
+  def timeline
+    @posts = current_user.feed.paginate(page: params[:page])
+  end
+
+  def ranking
+    @posts = Post.all.reverse_order.paginate(page: params[:page])
+  end
 
   private
 

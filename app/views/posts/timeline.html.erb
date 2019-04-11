@@ -1,0 +1,28 @@
+<% provide(:title, "タイムライン") %>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+    <%= render 'shared/link_list' %>
+    <%= link_to "新しい解説を投稿する", new_post_path, class: "btn btn-primary btn_new_post" %>
+  </aside>
+
+  <div class="col-md-9">
+    <div class="wrapper">
+      <h3>タイムライン</h3>
+      <% if @posts.any? %>
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+        <%= will_paginate %>
+      <% else %>
+        <hr>
+        <h4>フォロー中の投稿がありません</h4>
+      <% end %>
+    </div>
+  </div>
+</div>
