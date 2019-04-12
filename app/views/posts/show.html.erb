@@ -41,7 +41,7 @@
     <section class="headline_section">
       <% @post.headlines.each do |headline| %>
         <h2><%= headline.headline_name %></h2>
-        <p><%= headline.headline_content %></p>
+        <p><%= simple_format(headline.headline_content) %></p>
       <% end %>
     </section>
     <!-- cocoonを用いての解説追加部分終わり -->
